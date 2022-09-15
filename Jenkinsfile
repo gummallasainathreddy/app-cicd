@@ -10,9 +10,9 @@ pipeline {
         }
          stage('cd') {
             steps {
-                sh'rm -fr *'
-                sh'aws s3 cp s3://artifactory-cicd-sainath/html-helloworld-$PKG.zip .'
-                sh'unzip html-helloworld-$PKG.zip'
+                #sh'rm -fr *'
+                sh'aws s3 cp s3://artifactory-cicd-sainath/html-helloworld-$BUILD_NUMBER.zip .'
+                sh'unzip html-helloworld-$BUILD_NUMBER.zip'
                 sh'scp index.html root@172.31.36.60:/var/www/html/'
             }
         }
